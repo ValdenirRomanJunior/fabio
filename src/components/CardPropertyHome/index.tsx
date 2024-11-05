@@ -75,7 +75,6 @@ const CardPropertyHome = (props: { url: string})=>{
 
     const [error,setError]= useState('');
 
-
     const [page, setPage] = useState<Property[]>();
 
 

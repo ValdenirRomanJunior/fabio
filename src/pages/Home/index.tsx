@@ -60,8 +60,8 @@ const Home = () => {
 
   const state2 = {
     items: [
-      { image: principalBannerMobile},
       { image: principalBanner2Mobile},
+      { image: principalBannerMobile},
  
     ]
   }
