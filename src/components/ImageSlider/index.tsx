@@ -72,6 +72,7 @@ const ImageSlider = (slides:Slides)=>{
 
             </div>
            } 
+           
 
          <div style={
         {position:'absolute',top:'50%', left:'5%',  fontSize:'35px',

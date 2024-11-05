@@ -113,8 +113,7 @@ function handleChange(e: any): void {
             },2000)
         }
 
-    }      
-                                         
+    }                                               
 }
     return(
         <ContactContainer>

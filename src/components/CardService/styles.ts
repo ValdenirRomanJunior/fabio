@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 
+
 export const CardContainer = styled.div<{focus:boolean,focusSecond:boolean,focusTertiary:boolean}>`
     width:100%;
-
+ 
 
 
     .subtitle-session-cards{

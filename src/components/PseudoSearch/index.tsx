@@ -49,7 +49,6 @@ const PseudoSearch = () =>{
     const navigateSearch = useNavigateSearch();
 
 
-
     const[goal,setGoal]=useState('');
     const[type,setType]= useState('');
     const[name,setSearch]= useState('');

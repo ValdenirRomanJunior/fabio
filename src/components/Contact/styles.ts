@@ -431,7 +431,7 @@ export const ContactButtonOpenWrapper = styled.div`
     .button-open-modal-home-contact{
         width:80%;
         font-family: ${({theme}) => theme.fonts.font_primary};
-        background:rgb(2,44,108,69%);
+        background:rgb(1 143 255);
         border-radius:20px;
         color:#fff;
         border:none;

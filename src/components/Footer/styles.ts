@@ -13,8 +13,8 @@ export const FooterContainer = styled.div`
 `
 
 export const LogoWrapper = styled.div`
-    width:60px;
-    height:60px;
+      width: 70px;
+    height: 40px;
 
 
     img{

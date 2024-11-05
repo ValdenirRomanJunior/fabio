@@ -1,5 +1,5 @@
 import { FooterContainer, LogoWrapper, SocialWrapper, TextWrapper } from "./styles";
-import Logo from '../../assets/images/logo-letras-pretas.png';
+import Logo from '../../assets/images/logo-fabio-grande-vector.svg';
 import {SlSocialInstagram} from 'react-icons/sl';
 import {FaFacebookF} from 'react-icons/fa';
 import {MdWhatsapp} from 'react-icons/md'
@@ -15,14 +15,14 @@ const Footer = () => {
         <TextWrapper>
             <div className="copy-nameBusiness">
             <span> © 2024</span>
-            <span> Invest Imóveis- Negócios imobiliários</span>
+            <span> Especialista Imóveis- Negócios imobiliários</span>
             </div>
-            <span>CRECI 13694F</span>
+            <span>CRECI 4058F RO</span>
         </TextWrapper>
         <SocialWrapper>
-             <a href="https://www.facebook.com/ubaldoneto/" ><FaFacebookF className="icon-social-footer"/></a>
-             <a href="https://www.instagram.com/imob_invest_ubj/"><SlSocialInstagram className="icon-social-footer"/></a>
-             <a href="https://api.whatsapp.com/send?phone=5588993170211"> <MdWhatsapp className="icon-social-footer"/></a>
+             <a href="https://www.facebook.com/profile.php?id=61558985495004" ><FaFacebookF className="icon-social-footer"/></a>
+             <a href="https://www.instagram.com/especialistaimoveisnet/"><SlSocialInstagram className="icon-social-footer"/></a>
+             <a href="https://api.whatsapp.com/send?phone=556999508521"> <MdWhatsapp className="icon-social-footer"/></a>
         </SocialWrapper>
        </FooterContainer>
     )

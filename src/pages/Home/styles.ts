@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import BannerBottomDesktop from '../../assets/images/desktop-bg-banner-bottom.png';
 import BannerBottomMobile from '../../assets/images/mobile-bg-banner-bottom.png';
+import { IconType } from "react-icons";
+
 
 
 export const HomeBodyContainer = styled.div`
@@ -9,15 +11,15 @@ export const HomeBodyContainer = styled.div`
 
 `
 
-export const HomeBannerWrapper = styled.div`
+export const HomeBannerWrapper = styled.div<{icon:IconType}>`
     width:100vw;
-    height:380px;
+    height:300px;
     position:relative;
   
 
     .title-search-container{
         position: absolute;
-        top:50%;
+        top:65%;
         left:50%;
         transform: translate(-50%, -50%);
         width:100%;
@@ -30,9 +32,9 @@ export const HomeBannerWrapper = styled.div`
         justify-content: cener;
 
         .principal-title{
-            width: 45%;
-            heigh: 45%;    
-            margin-bottom:20px;
+            width: 37%;
+            heigh: 37%;    
+            margin-bottom:5px;
                
         }
 
@@ -49,19 +51,69 @@ export const HomeBannerWrapper = styled.div`
         display: flex;
        justify-content: center;
        text-align: center;
+    
 
     }
- 
+    
+    .carousel.carousel-slider{
+        height:300px;
+    }
 
     .img-principal-banner{
         width:100%; 
         object-fit:cover;
         aspect-ratio: 1/1;
-        max-height: 100%;
-     
+        max-height: 330px;
+          
     }
+    .arrow-prev{
+    background:#fff;
+      box-shadow: rgb(1 143 255) 0px 0px 10px -3px;
+      position: absolute;
+      left:5%;
+      top:45%;
+      z-index: 1;
+      width:37px;
+      height:37px;
+      min-width:37px;
+      max-height:37px;
+      line-height: 37px;
+      font-size:15px;
+      color:rgb(1 143 255);
+       border-radius:50%;
+        padding:7px;
+        cursor: pointer;
+       
+
+    }
+
+    .arrow-next{
+      background:#fff;
+      box-shadow: rgb(1 143 255) 0px 0px 10px -3px;
+      position: absolute;
+      top:45%;
+      right:5%;
+      z-index: 1;
+      width:37px;
+      height:37px;
+      min-width:37px;
+      max-height:37px;
+      line-height: 37px;
+      font-size:15px;
+      color:rgb(1 143 255);
+      border-radius:50%;
+      padding:7px;
+      cursor: pointer;
+
+    }
+      .control-dots{
+      display: none;
+      }
+
+   
  @media screen and (min-width:600px){
-        min-height:400px;
+         min-height:310px;
+      
         .title-search-container{
             display: flex;
             flex-direction: column;
@@ -77,12 +129,14 @@ export const HomeBannerWrapper = styled.div`
         }
 }
     @media screen and (min-width:1000px){
-        min-height:400px;
+         min-height:400px;
+
         .title-search-container{
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            top:50%;
 
           .principal-title{
             width: 20%;
@@ -97,16 +151,34 @@ export const HomeBannerWrapper = styled.div`
         width:100%; 
         object-fit:cover;
         aspect-ratio: 1/1;
-        max-height: 100%;
+        max-height: 400px;
         display: block;
 
     }
- 
+         .arrow-prev{
+           width:48px;
+            height:48px;
+            min-width:48px;
+            max-height:48px;
+            line-height: 48px;
+            font-size:15px;
     }
-
+         .arrow-next{
+          width:48px;
+            height:48px;
+            min-width:48px;
+            max-height:48px;
+            line-height: 48px;
+            font-size:15px;
+     }
+   .carousel.carousel-slider{
+        height:400px;
+    }
+    }
+   
     
     @media screen and (min-width:1200px){
-
+        min-height:400px;
         .title-search-container{
             display: flex;
             flex-direction: column;
@@ -120,6 +192,15 @@ export const HomeBannerWrapper = styled.div`
                
         }
         }
+        .img-principal-banner{
+        width:100%; 
+        object-fit:cover;
+        aspect-ratio: 1/1;
+        max-height: 400px;
+        display: block;
+
+    }
+    
     }
 
     @media screen and (min-width:1400px){
@@ -707,6 +788,7 @@ export const SessionAgent = styled.div`
     width:100%;
     background:#FBFBFB;
     padding:2rem 0;
+    background:rgb(229 247 255);
 
     display: flex;
     flex-direction: column;
@@ -1104,7 +1186,7 @@ export const SessionAgent = styled.div`
 `
 export const SessionBannersBottom = styled.div`
     width:100%;
-    padding:1rem 1rem;
+    padding:1rem;
     background-color:rgb(251, 251, 251);
 
     .image-banner-bottom-wrapper{
@@ -1357,8 +1439,8 @@ export const SessionBannersBottom = styled.div`
             .button-banner-bottom{
                 display:block;
                 color:#fff;
-                background-color:rgb(206 207 56);
-                border:1px solid rgb(232 201 0);
+                background-color:rgb(1, 143, 255);
+                border:1px solid rgb(0 111 198);
                 border-radius:5px;
                 padding:12px 29px;
                 margin-top:20px;
@@ -1820,6 +1902,7 @@ export const ContactModalContainerHome = styled.div<{openModal:boolean}>`
 export const SessionCards= styled.div`
     width:100%;
     padding:1.5rem 1rem;
+
 
     @media screen and (min-width:780px){
 

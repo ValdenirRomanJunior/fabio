@@ -8,7 +8,7 @@ import {AiOutlineUser} from 'react-icons/ai';
 import {IoIosArrowForward} from 'react-icons/io';
 import {IoSettingsOutline} from 'react-icons/io5';
 import { useState } from 'react';
-import logo from '../../assets/images/logo-letras-pretas.png';
+import logo from '../../assets/images/logo-fabio-grande-vector.svg';
 import {GrFormClose} from 'react-icons/gr';
 import {BsTelephone} from 'react-icons/bs';
 import { MdWhatsapp } from 'react-icons/md';
@@ -62,9 +62,16 @@ const Header = ({onChange}:Prop) =>{
             <HeaderWrapper>
             <Link to="/"><img src={logo} className="logo"  alt='logo optimus' /></Link>
                 <MenuLogoWrapper>
-                <TelephoneSideBarWrapper>
+
+                <div className='links-options-rent-header'>
+                <span className='link-option-header'>Comprar</span>
+                <span className='link-option-header'>Alugar</span>
+                </div>
+
+                <TelephoneSideBarWrapper>                 
                     <BsTelephone className='telephone-icon-header'/>
-                   <span>(88) 99317-0211</span>
+                   <span>(69) 9950-8521</span>
+                  
                 </TelephoneSideBarWrapper>
                 <Hambuguer onClick={showSidebar}>
                     <span></span>
@@ -95,7 +102,7 @@ const Header = ({onChange}:Prop) =>{
          
        
             <PhoneWrapper >
-            <a href='https://api.whatsapp.com/send?phone=5588993170211'><MdWhatsapp className='whatsapp-icon-sidebar'/><p className='description-icon'>(88) 99317-0211</p></a>
+            <a href='https://api.whatsapp.com/send?phone=556999508521'><MdWhatsapp className='whatsapp-icon-sidebar'/><p className='description-icon'>(69) 9950-8521</p></a>
             </PhoneWrapper>  
          
 

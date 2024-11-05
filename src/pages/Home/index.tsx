@@ -1,19 +1,22 @@
 import Header from "../../components/Header";
 import { ContactModalContainerHome, HomeBannerWrapper, HomeBodyContainer, SessionAgent, SessionBannersBottom, SessionCards, SessionContact, SessionFooter, SessionQuestions, SessionSlides, SessionSlidesWrapper} from "./styles";
-import principalBanner from '../../assets/images/banner-principal-2.png';
+import principalBanner from '../../assets/images/banner-principal-1-fabio.png';
+import principalBanner2 from '../../assets/images/banner-principal-2-fabio.png';
+import principalBannerMobile from '../../assets/images/banner-1-mobile.jpeg';
+import principalBanner2Mobile from '../../assets/images/banner-principal-2-fabio-mobile.png';
 import PseudoSearch from "../../components/PseudoSearch";
 import CardPropertyHome from "../../components/CardPropertyHome";
 import HouseImage from '../../assets/images/house-image.jpg';
 import RightHouseImage from '../../assets/images/right-image-house.svg';
-import logoHome from '../../assets/images/logo-branca-sem-fundo.png';
-import {FaQuoteLeft} from 'react-icons/fa';
+import logoHome from '../../assets/images/logo-fabio-grande-vector.svg';
+import {FaArrowRight, FaQuoteLeft} from 'react-icons/fa';
 import AgentImage from '../../assets/images/perfil-corretor.png';
 import {BsArrowRight} from 'react-icons/bs';
 import Question from "../../components/Question";
 import Footer from "../../components/Footer";
 import Contact from "../../components/Contact"; 
 
-import { Suspense, lazy, useEffect, useState } from "react";
+import { Ref, Suspense, lazy, useEffect, useRef, useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import CardService from "../../components/CardService";
 
@@ -26,15 +29,44 @@ import Informations from "../../components/Informations";
 import { Link, createSearchParams, useNavigate } from "react-router-dom";
 import { ErrorBoundary } from 'react-error-boundary';
 import PageNotFound from "../../components/PageNotFound";
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
+import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
+
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+import React from "react";
+import MediaQuery from "react-responsive";
 
 
+type Banners = {
+    img:string;
+}
 
 const Home = () => {
-  
+
+      
 
     const [url,setUrl]= useState((window.location.hostname));
-
     const [openModalContactBottom,setOpenModalContactBottom]=useState(true);
+
+    const state = {
+    items: [
+      { image: principalBanner},
+      { image: principalBanner2},
+ 
+    ]
+  }
+
+
+  const state2 = {
+    items: [
+      { image: principalBannerMobile},
+      { image: principalBanner2Mobile},
+ 
+    ]
+  }
+  
+   
 
 
     const handleToOpenModalContact= () =>{
@@ -48,28 +80,78 @@ const Home = () => {
       const getParamHeader = (goal:string) => {
         return goal;
       }
-
+   
+   
+     
+   
     return (
         <ErrorBoundary FallbackComponent={ErrorHandler}>
         <HomeBodyContainer>
             <Header onChange={getParamHeader}/>
-            <HomeBannerWrapper id="search">
+
+            <HomeBannerWrapper id="search" icon={IoMdArrowForward }>
                 <div className="title-search-container">
-                <LazyLoadImage effect="blur" src={logoHome} alt="principal-title"  className="principal-title"/>
-           
-              
+                <LazyLoadImage  effect="blur" src={logoHome} alt="principal-title"  className="principal-title"/>                    
                 <PseudoSearch/>
                 </div>
-               
+       
+                <MediaQuery  query="(max-width: 1024px)">
+                <Carousel              
+              showStatus={false}
+              showThumbs={false}    
+              infiniteLoop={true}                
+              autoPlay={true}
+              interval={5000}
+              renderArrowPrev={(clickHandler, hasPrev) => {
+                return (           
+                    <IoMdArrowBack onClick={clickHandler} className="arrow-prev" />                
+                )
+              }}
+              renderArrowNext={(clickHandler, hasNext) => {
+                return (
+                    < IoMdArrowForward  onClick={clickHandler} className="arrow-next" />                
+                );
+              }}>                                           
+                  {state2.items.map(item => (
+               <LazyLoadImage   effect="blur"  src={item.image as string} alt="banner principal"  className="img-principal-banner "/>  
+                  ))                        
+              }                 
+                </Carousel>
+                </MediaQuery> 
 
-                <LazyLoadImage effect="blur" src={principalBanner} alt="banner principal"  className="img-principal-banner"/>
+        <MediaQuery query="(min-width: 1024px)">
+       
+           <Carousel              
+              showStatus={false}
+              showThumbs={false}
+              infiniteLoop={true}                
+              autoPlay={true}
+              interval={5000}
+              renderArrowPrev={(clickHandler, hasPrev) => {
+                return (           
+                    <IoMdArrowBack onClick={clickHandler} className="arrow-prev" />                
+                )
+              }}
+              renderArrowNext={(clickHandler, hasNext) => {
+                return (
+                    < IoMdArrowForward  onClick={clickHandler} className="arrow-next" />                
+                );
+              }}>                                           
+                  {state.items.map(item => (
+               <LazyLoadImage   effect="blur"  src={item.image as string} alt="banner principal"  className="img-principal-banner "/>  
+                  ))                        
+              }                 
+                </Carousel>
+                </MediaQuery> 
+                                                     
             </HomeBannerWrapper>
 
             <SessionCards>
             
-                     <CardService/> 
+                 <CardService/> 
                                  
            </SessionCards>
+           
                     <SessionSlidesWrapper>
            <SessionSlides>
                 <h2 className="subtitle">Imóveis em destaque</h2>
@@ -106,7 +188,7 @@ const Home = () => {
             <div className="text-agent-wrapper-home">
             <FaQuoteLeft className="quote-icon-agent-home"/>
             <h3>Você tem sonhos, eu tenho a chave da solução!</h3>
-            <p>CEO-Ubaldo Vasconcelos</p>
+            <p>CEO-Fábio Márcio Arantes Dantas</p>
             </div>
 
             
@@ -121,7 +203,7 @@ const Home = () => {
               
             </div>
             </div>
-            <p className="agent-name">CEO-Ubaldo Vasconcelos</p>
+            <p className="agent-name">CEO-Fábio Márcio Arantes Dantas</p>
             </div> 
           
            </SessionAgent>

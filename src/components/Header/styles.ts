@@ -26,8 +26,8 @@ export const HeaderWrapper = styled.div`
     justify-content: space-between;
 
       .logo{
-        width:50px !important;
-        height:50px !important;
+        width:80px !important;
+        height:60px !important;
         margin-left:8px;
         object-fit:contain;
         
@@ -66,7 +66,7 @@ export const HeaderWrapper = styled.div`
         width:90%;
 
         .logo{
-            width:70px !important;
+            width:90px !important;
             height:60px !important;
             margin-left:8px;
             object-fit:contain;
@@ -96,7 +96,27 @@ export const HeaderWrapper = styled.div`
 export const MenuLogoWrapper = styled.div`
     display:flex;
     align-items:center;
+
+   .links-options-rent-header{
+        font-size: 11px;
+        color: rgb(128, 128, 128);
+        font-family: Outfit, sans-serif;
+        display:none;
+         margin-right:30px;
+   
+   }
+ @media screen and (min-width: 1000px){
+  .links-options-rent-header{
+         display:flex;
+        align-items: center;
+        justify-content: space-between;
+        width:140px;
+        font-size:14px;
+      
     
+   }
+
+}
     
 `
 export const Hambuguer = styled.div`
@@ -371,7 +391,7 @@ export const PhoneWrapper = styled.div`
 `
 
 export const TelephoneSideBarWrapper = styled.div`
-    width:105px;
+    width:100px;
     height:40px;
     margin-right:20px;
     font-family:${({theme}) => theme.fonts.font_primary};
@@ -380,6 +400,7 @@ export const TelephoneSideBarWrapper = styled.div`
     align-items: center;
     justify-content: space-between;
 
+   
     .telephone-icon-header{
         font-size: 14px;
         color:#808080;
@@ -390,8 +411,10 @@ export const TelephoneSideBarWrapper = styled.div`
         color:#808080;
     }
 
+    
+
     @media screen and (min-width: 1000px){
-        width:112px;
+        width:105px;
         height:40px;
         margin-right:20px;
 

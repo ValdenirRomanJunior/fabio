@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 
 export const PseudoSearchContainer = styled.div`
-    width: 100%;
-    height:3rem;
+    width: 90%;
+    height:2.5rem;
     background:#fff;
     border-radius: 2.75rem;
     padding-left:1rem;
@@ -12,12 +12,14 @@ export const PseudoSearchContainer = styled.div`
     position: relative;
     display: flex;
     align-items: center;
+    box-shadow: 0px 2px 8px 0px rgba(60, 64, 67, 0.25);
 
   
     .arrow-location-pseudoSearch{
         position: absolute;
         left: 0.75rem;
         top: 0.9375rem;
+        font-size:18px !important;
     }
 
     button{
@@ -51,7 +53,7 @@ export const PseudoSearchContainer = styled.div`
     top: .8125rem;
 
         color:gray;
-        font-size:25px;
+        font-size:20px;
         line-height: 1;
         cursor: pointer;
      
@@ -61,7 +63,7 @@ export const PseudoSearchContainer = styled.div`
     }
 
    @media screen and (min-width:1000px){
-        width: 70%;
+        width: 55%;
         height:3rem;
 
         button{
@@ -211,7 +213,7 @@ export const PseudoSearchContainer = styled.div`
    }
 
    @media screen and (min-width:1300px){
-    width: 65%;
+    width: 55%;
     height:3rem;
 
     button{
@@ -361,7 +363,7 @@ export const PseudoSearchContainer = styled.div`
 }
 
 @media screen and (min-width:1400px){
-    width: 60%;
+    width: 50%;
     height:3rem;
 
     button{
