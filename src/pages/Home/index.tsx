@@ -49,6 +49,7 @@ const Home = () => {
     const [url,setUrl]= useState((window.location.hostname));
     const [openModalContactBottom,setOpenModalContactBottom]=useState(true);
 
+    console.log(url)
     const state = {
     items: [
       { image: principalBanner},
@@ -187,7 +188,7 @@ const Home = () => {
            <div className="session-agent-content-wrapper">   
             <div className="text-agent-wrapper-home">
             <FaQuoteLeft className="quote-icon-agent-home"/>
-            <h3>Você tem sonhos, eu tenho a chave da solução!</h3>
+            <h3>Oportunidades imobiliárias que transformam vidas e negócios.</h3>
             <p>CEO-Fábio Márcio Arantes Dantas</p>
             </div>
 

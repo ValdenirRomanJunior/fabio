@@ -16,23 +16,21 @@ const api = axios.create({
    if  (!token || token === null){
       localStorage.setItem('token',JSON.stringify('adaddadaadgrtr435'))
       return config;
+
   }else{
-      const tokenString = JSON.parse(token || '');
-      
     
+      const tokenString = JSON.parse(token || '');
+       
       config.headers = {
        
         'Content-Type': 'application/json'
-        
-                  
-  
+                     
     }
      
       return config; 
     }
   
 });
-
 
 export default api;
 

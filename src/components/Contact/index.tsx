@@ -102,7 +102,7 @@ function handleChange(e: any): void {
             setLoadingAddLead(false)
                                                                            
         } 
-        else if(data.response.status === 404 || data.response.status === 403){
+        else if(data.response.status === 404 || data.response.status === 403 || data.response.status === 400){
                
             setOtherError(true)
             setSuccessMessage(false)

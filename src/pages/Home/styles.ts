@@ -880,7 +880,8 @@ export const SessionAgent = styled.div`
            width:90%;
            height:90%;
            border-radius:50%;
-           object-fit:cover; 
+           object-fit:cover;
+           transform: rotateY(180deg);
            
         }
     }

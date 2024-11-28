@@ -64,8 +64,8 @@ const Header = ({onChange}:Prop) =>{
                 <MenuLogoWrapper>
 
                 <div className='links-options-rent-header'>
-                <span className='link-option-header'>Comprar</span>
-                <span className='link-option-header'>Alugar</span>
+                <span className='link-option-header' onClick={handleToSearchSale} style={{cursor:'pointer'}}>Comprar</span>
+                <span className='link-option-header'  onClick={handleToSearchRent} style={{cursor:'pointer'}}>Alugar</span>
                 </div>
 
                 <TelephoneSideBarWrapper>                 

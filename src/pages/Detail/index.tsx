@@ -118,6 +118,9 @@ const handleKeyUp = (e: React.FormEvent<HTMLInputElement | any>) =>{
    
 }
   
+console.log(form)
+console.log(property?.id)
+
  //submete fortmulario do lead
   const handleSubmitLead = async (e:any) =>{   
     e.preventDefault()
@@ -129,7 +132,7 @@ const handleKeyUp = (e: React.FormEvent<HTMLInputElement | any>) =>{
     if(!emptyValues){
     setLoadingAddLead(true);
        
-     const data = await newLead(form['name'],form['email'],form['phone'],form['message'],property?.id as number,property?.tenant.id as number) 
+     const data = await newLead(form['name'],form['email'],form['phone'],form['message'],property?.id as number) 
       if(data.status === 201){
         cleanForm()         
         setSuccessMessage(true)
@@ -145,7 +148,7 @@ const handleKeyUp = (e: React.FormEvent<HTMLInputElement | any>) =>{
             setLoadingAddLead(false)
                                                                            
         } 
-        else if(data.response.status === 404 || data.response.status === 403){
+        else if(data.response.status === 404 || data.response.status === 403 || data.response.status === 400){
                
             setOtherError(true)
             setSuccessMessage(false)

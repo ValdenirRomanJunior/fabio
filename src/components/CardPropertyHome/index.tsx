@@ -79,7 +79,7 @@ const CardPropertyHome = (props: { url: string})=>{
 
 
     const getProperties = async () => {    
-        const data= await getPropertiesHome('lindomarnogueiracorretor.com.br');  
+        const data= await getPropertiesHome('localhost');  
      
         if(data){     
             setPage(data.data as Property[]);
