@@ -92,6 +92,8 @@ font-size: 14px;
 .sale-span{
     font-size: 14px;
 }
+
+
 .select-half{
     text-align: center;
     border:none;
@@ -104,6 +106,70 @@ font-size: 14px;
 .select-half option {
   font-size: 12px;
 }
+
+    
+.custom-dropdown{
+      
+    border-left: 1px solid rgb(229, 229, 229);
+   position: relative;
+   color:gray;
+   padding: 2px 18px 2px 8px;
+   margin-left:8px;
+   font-size:12px;
+   width:33%;
+  
+   display: flex;
+   align-items: center;
+       
+   
+}
+.custom-dropdown-selection{
+   background-color:#fff;
+   position: relative;
+   width:100%;
+               
+}
+   .arrow-type{
+   position: absolute;
+    right:-8%;
+   top:20%;
+   font-size:14px;
+   font-weight:700;
+   }
+
+  .custom-dropdown .items-holder{
+  position:absolute;
+  top:100%;
+  left: -20%;
+    background-color:#fff;
+    width:100%;
+    border: 1px solid #000;
+    z-index:1;   
+    max-height: 210px;
+    border-radius:5px;
+    padding:5px 0;
+    overflow:scroll;   
+
+}
+
+    .custom-dropdown .items-holder::-webkit-scrollbar {
+ display: none;
+}
+
+
+.custom-dropdown .items-holder::-webkit-scrollbar {
+
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
+
+   .custom-dropdown .items-holder .dropdown-item{
+   padding: 10px 16px;
+   cursor:pointer;
+   color:gray;
+    
+     
+   }
 
 .Modal .search-wrapper{
     position: relative;

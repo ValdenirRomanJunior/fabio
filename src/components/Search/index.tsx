@@ -1,9 +1,11 @@
 import {SearchContainer,SearchHiddenWrapper,SearchWrapper} from './styles';
 import { TfiSearch } from "react-icons/tfi";
 import {BsSliders} from 'react-icons/bs'
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getTAllAddressRequest } from '../../services/property';
 import { lowercase } from '../PseudoSearch/masks';
+import { IoCloseOutline } from 'react-icons/io5';
+import { IoIosArrowDown } from 'react-icons/io';
 
 type Address={
   
@@ -199,13 +201,105 @@ const Search = ({onChange}:Prop) =>{
      useEffect(()=> {
         getTypingDistrict()
      },[name])
+
+
+     
+     const [isDropdownVisible,setIsDropDownVisible]=useState(false)
+     const [itemsList,setItemsList]= useState([
+      
+         {
+             type:"Casa",
+             value:"1"
+         },
+         {
+             type:"Apartamento",
+             value:"2"
+         },
+         {
+             type:"Terreno",
+             value:"3"
+         },
+         {
+             type:"Casa Comercial",
+             value:"4"
+         },
+         {
+             type:"Casa de Condomínio",
+             value:"5"
+         },
+     
+         {
+             type:"Flat",
+             value:"6"
+         },
+         {
+             type:"Chácara",
+             value:"7"
+         },
+         {
+             type:"Sítio",
+             value:"8"
+         },
+         {
+             type:"Fazenda",
+             value:"9"
+         },
+         {
+             type:"Galpão/Barracão",
+             value:"10"
+         },
+         {
+             type:"Pousada",
+             value:"11"
+         },
+         {
+             type:"Studio",
+             value:"12"
+         },
+         {
+             type:"Sala Comercial",
+             value:"13"
+         },
+         {
+             type:"Sobrado",
+             value:"14"
+         },
+         {
+             type:"Lançamento",
+             value:"15"
+         }
+     ])
+       //selected index typeProperty
+       const [selectedItemIndex,setSelectedItemIndex]=useState(null);
+       const ref = useRef<HTMLDivElement>(null);
+     
+ 
+       useEffect(() => {
+           document.addEventListener("click", handleClickOutside, false);
+           return () => {
+             document.removeEventListener("click", handleClickOutside, false);
+           };
+         }, []);
+       
+         const handleClickOutside = (event:any) => {
+           if (ref.current && !ref.current.contains(event.target)) {
+             setIsDropDownVisible(false)
+           
+                      
+           }
+         };
+         const cleanIndexType = ()=>{
+           setSelectedItemIndex(null)
+           setType('')
+           
+         }
  
     return(
         <SearchContainer>
         <SearchWrapper>
         
         <input placeholder='Digite Cidade ou Bairro' type="text" value={name} onKeyUp={onKeyUp} onChange={(e)=>setSearch(e.target.value.toLowerCase())}/>
-        <button className='button-search' onClick={()=>onChange(goal,type,name)}>Buscar</button>
+        <button className='button-search' onClick={()=>onChange(goal,type,name)} style={{cursor:'pointer'}}>Buscar</button>
         
         <BsSliders className='sliders-icon-search' onClick={openSearchHidden}/>
         </SearchWrapper>
@@ -237,14 +331,33 @@ const Search = ({onChange}:Prop) =>{
                    
                 </select>
 
-         <select placeholder='tipo' name='type'  id='type' className="select" onChange={(e)=>setType(e.target.value)}> 
-                <option value='' >Tipo</option>                
-                    <option key='1' value='1'>Casa</option>
-                    <option key='2' value='2'>Apartamento</option>
-                    <option key='3' value='3'>Terreno</option>
-                    <option key='4' value='4'>Comercial</option>           
-                </select>
+                    
+                <div className="custom-dropdown" ref={ref}>
+                    <div className="custom-dropdown-selection" onClick={e=> {
+                        setIsDropDownVisible(!isDropdownVisible);
+                    }}>
+                        {selectedItemIndex !== null ? itemsList[selectedItemIndex].type :" Tipo"}
+                        {selectedItemIndex !== null && <IoCloseOutline  onClick={cleanIndexType} className="icon-clean-type"/> }
 
+                        <IoIosArrowDown className="arrow-type" />
+                    </div>
+                    {isDropdownVisible ? 
+                    <div className="items-holder">
+                        {
+                            itemsList.map((item,index) => (
+                                <div key={item.value} className="dropdown-item" onClick={e => {
+                                    setSelectedItemIndex(index as any)
+                                    setIsDropDownVisible(false)
+                                    setType(String(index));
+                                    }}>
+                                    {item.type}
+                                                               
+                                </div>
+                            ))
+                        }
+                    </div>: <></>}
+                 
+                </div> 
          </SearchHiddenWrapper>
 
        

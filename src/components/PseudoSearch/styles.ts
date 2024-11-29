@@ -209,6 +209,37 @@ export const PseudoSearchContainer = styled.div`
         .result-list-wrapper-desktop input{
             width:300px;
         }
+
+        .custom-dropdown{
+      
+                border-left: 1px solid rgb(229, 229, 229);
+            position: relative;
+            color:gray;
+            padding: 2px 18px 2px 8px;
+            margin-left:8px;
+            font-size:12px;
+            width:48%;
+            
+            display: flex;
+            align-items: center;
+            cursor:pointer;
+                
+   
+    }
+          .custom-dropdown .items-holder{
+                position:absolute;
+                top:100%;
+                left: -10%;
+                background-color:#fff;
+                width:120%;
+                border: 1px solid #000;
+                z-index:1;   
+                max-height: 210px;
+                border-radius:5px;
+                padding:5px 0;
+                overflow:scroll;   
+
+}
       
    }
 

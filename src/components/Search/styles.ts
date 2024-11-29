@@ -123,11 +123,76 @@ export const SearchHiddenWrapper = styled.div<{open:boolean}>`
         color:#78909c;
         padding: 0 8px;
         margin-top:.5rem;
+            font-family: 'Outfit', sans-serif;
     }
     .select:focus{
         outline:none;
     }
 
+.custom-dropdown{
+      
+  border: 1px solid rgb(241, 243, 245);
+   position: relative;
+   color:gray;
+   padding: 2px 0 2px 8px;
+   margin-left:8px;
+   font-size:12px;
+   width:100%;
+   height: 40px;
+   margin-top:5px;
+   margin-left:0;
+   display: flex;
+   align-items: center;
+    
+}
+  
+   .arrow-type{
+   position: absolute;
+    right:3%;
+   top:20%;
+   font-size:14px;
+   font-weight:700;
+   }
+
+.custom-dropdown-selection{
+   background-color:#fff;
+   position: relative;
+   width:100%;
+               
+}
+    .custom-dropdown .items-holder{
+  position:absolute;
+  top:100%;
+  left:0%;
+    background-color:#fff;
+    width:100%;
+    border: 1px solid #000;
+    z-index:1;   
+    max-height: 210px;
+    border-radius:5px;
+    padding:5px 0;
+    overflow:scroll;   
+
+}
+
+        .custom-dropdown .items-holder::-webkit-scrollbar {
+    display: none;
+    }
+
+
+    .custom-dropdown .items-holder::-webkit-scrollbar {
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    }
+
+   .custom-dropdown .items-holder .dropdown-item{
+   padding: 10px 16px;
+   cursor:pointer;
+   color:gray;
+        font-family: 'Outfit', sans-serif;
+     
+   }
     @media screen and (min-width:1000px){
         display:flex;
         width:auto;
@@ -137,7 +202,26 @@ export const SearchHiddenWrapper = styled.div<{open:boolean}>`
 
         .select{
             width:140px;
-            
+            cursor:pointer;
         }
+
+        .custom-dropdown{
+      
+        border: 1px solid rgb(241, 243, 245);
+        position: relative;
+        color:gray;
+        padding: 2px 0 2px 8px;
+        margin-left:8px;
+        font-size:12px;
+        width:150px;
+        height: 40px;
+        margin-top:7px;
+        margin-left:10px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+    
+}
     }
 `

@@ -2,13 +2,14 @@ import { PseudoSearchContainer } from "./styles";
 import { BiSearchAlt2 } from "react-icons/bi";
 import {TfiLocationArrow} from 'react-icons/tfi';
 import Modal from 'react-modal';
-import { MouseEventHandler, useEffect, useState } from "react";
-import {IoIosArrowBack} from 'react-icons/io'
+import { MouseEventHandler, useEffect, useRef, useState } from "react";
+import {IoIosArrowBack, IoIosArrowDown} from 'react-icons/io'
 import './styles.css'
 
 import { createSearchParams, Link, useNavigate, useSearchParams } from "react-router-dom";
 import { getTAllAddressRequest} from "../../services/property";
 import Loading from "../Loading";
+import { IoCloseOutline } from "react-icons/io5";
 
 type Address={
   
@@ -270,6 +271,98 @@ const PseudoSearch = () =>{
      }
 
 
+
+     const [isDropdownVisible,setIsDropDownVisible]=useState(false)
+     const [itemsList,setItemsList]= useState([
+      
+         {
+             type:"Casa",
+             value:"1"
+         },
+         {
+             type:"Apartamento",
+             value:"2"
+         },
+         {
+             type:"Terreno",
+             value:"3"
+         },
+         {
+             type:"Casa Comercial",
+             value:"4"
+         },
+         {
+             type:"Casa de Condomínio",
+             value:"5"
+         },
+     
+         {
+             type:"Flat",
+             value:"6"
+         },
+         {
+             type:"Chácara",
+             value:"7"
+         },
+         {
+             type:"Sítio",
+             value:"8"
+         },
+         {
+             type:"Fazenda",
+             value:"9"
+         },
+         {
+             type:"Galpão/Barracão",
+             value:"10"
+         },
+         {
+             type:"Pousada",
+             value:"11"
+         },
+         {
+             type:"Studio",
+             value:"12"
+         },
+         {
+             type:"Sala Comercial",
+             value:"13"
+         },
+         {
+             type:"Sobrado",
+             value:"14"
+         },
+         {
+             type:"Lançamento",
+             value:"15"
+         }
+     ])
+       //selected index typeProperty
+       const [selectedItemIndex,setSelectedItemIndex]=useState(null);
+       const ref = useRef<HTMLDivElement>(null);
+     
+ 
+       useEffect(() => {
+           document.addEventListener("click", handleClickOutside, false);
+           return () => {
+             document.removeEventListener("click", handleClickOutside, false);
+           };
+         }, []);
+       
+         const handleClickOutside = (event:any) => {
+           if (ref.current && !ref.current.contains(event.target)) {
+             setIsDropDownVisible(false)
+           
+                      
+           }
+         };
+         const cleanIndexType = ()=>{
+           setSelectedItemIndex(null)
+           setType('')
+           
+         }
+
+         console.log(type)
     return(
         <PseudoSearchContainer className="container"> 
             <TfiLocationArrow className="arrow-location-pseudoSearch"/>        
@@ -286,15 +379,33 @@ const PseudoSearch = () =>{
                     <span className="rent-span">alugar</span>
                  
                 </label>
-                <label   >
-                <select placeholder='tipo' name='type'  id='type' className="select-half"  onChange={(e)=>setType(e.target.value)}> 
-                    <option value='' >Tipo</option>                
-                    <option key='1' value='1'>Casa</option>
-                    <option key='2' value='2'>Apartamento</option>
-                    <option key='3' value='3'>Terreno</option>
-                    <option key='4' value='4'>Comercial</option>           
-                </select>
-                </label>
+           
+                <div className="custom-dropdown" ref={ref}>
+                    <div className="custom-dropdown-selection" onClick={e=> {
+                        setIsDropDownVisible(!isDropdownVisible);
+                    }}>
+                        {selectedItemIndex !== null ? itemsList[selectedItemIndex].type :" Tipo"}
+                        {selectedItemIndex !== null && <IoCloseOutline  onClick={cleanIndexType} className="icon-clean-type"/> }
+
+                        <IoIosArrowDown className="arrow-type" />
+                    </div>
+                    {isDropdownVisible ? 
+                    <div className="items-holder">
+                        {
+                            itemsList.map((item,index) => (
+                                <div key={item.value} className="dropdown-item" onClick={e => {
+                                    setSelectedItemIndex(index as any)
+                                    setIsDropDownVisible(false)
+                                    setType(String(index));
+                                    }}>
+                                    {item.type}
+                                                               
+                                </div>
+                            ))
+                        }
+                    </div>: <></>}
+                 
+                </div> 
                 </div>
             <input placeholder="Estado, Cidade, Tipo, Finalidade..." type="text" className="input-search-desktop"  onKeyUp={onKeyUp} value={name.toLowerCase()} onChange={(e)=>setSearch(e.target.value)}/>
                <BiSearchAlt2 className="search-icon-pseudo-search" onClick={startLoading} />
@@ -323,15 +434,32 @@ const PseudoSearch = () =>{
                     <span className="rent-span">alugar</span>
                 </label>
 
-                <label  onClick={selectedAfterGoalRent} className={`selectedClass${toogleClassCheckRent}`} >
-                <select placeholder='tipo' name='type'  id='type' className="select-half"  onChange={(e)=>setType(e.target.value)}> 
-                <option value='' >Tipo</option>                
-                    <option key='1' value='1'>Casa</option>
-                    <option key='2' value='2'>Apartamento</option>
-                    <option key='3' value='3'>Terreno</option>
-                    <option key='4' value='4'>Comercial</option>           
-                </select>
-                </label>
+                <div className="custom-dropdown" ref={ref}>
+                    <div className="custom-dropdown-selection" onClick={e=> {
+                        setIsDropDownVisible(!isDropdownVisible);
+                    }}>
+                        {selectedItemIndex !== null ? itemsList[selectedItemIndex].type :" Tipo"}
+                        {selectedItemIndex !== null && <IoCloseOutline  onClick={cleanIndexType} className="icon-clean-type"/> }
+
+                        <IoIosArrowDown className="arrow-type" />
+                    </div>
+                    {isDropdownVisible ? 
+                    <div className="items-holder">
+                        {
+                            itemsList.map((item,index) => (
+                                <div key={item.value} className="dropdown-item" onClick={e => {
+                                    setSelectedItemIndex(index as any)
+                                    setIsDropDownVisible(false)
+                                    setType(String(index));
+                                    }}>
+                                    {item.type}
+                                                               
+                                </div>
+                            ))
+                        }
+                    </div>: <></>}
+                 
+                </div> 
             </div>
             <div className="search-wrapper">
                 <input type="text" placeholder="Digite um bairro ou cidade"  onKeyUp={onKeyUp} value={name} onChange={(e)=>setSearch(e.target.value)}/>
