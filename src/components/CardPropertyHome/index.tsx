@@ -15,7 +15,7 @@ import Pagination from '../Pagination';
 import './carousel-styles.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
-import defaultImage from '../../assets/images/dillon-kydd-XGvwt544g8k-unsplash.jpg';
+import defaultImage from '../../assets/images/no-pictures.png';
 
 
 
